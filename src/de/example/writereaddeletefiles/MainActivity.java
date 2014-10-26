@@ -20,6 +20,8 @@ public class MainActivity extends ActionBarActivity {
 	private Button readbutton;
 	private TextView anzeige;
 	private String ausgabe;
+	private boolean dateierzeugt = false;
+	private Button delete;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class MainActivity extends ActionBarActivity {
 					Toast.makeText(getApplicationContext(), "Inhalt wurde abgespeichert",
 							Toast.LENGTH_SHORT).show();
 					savegeklickt = true;
+					dateierzeugt = true;
 				} else {
 					Toast.makeText(getApplicationContext(), "Bitte tragen Sie etwas in das Feld ein!",
 							Toast.LENGTH_SHORT).show();
@@ -56,6 +59,21 @@ public class MainActivity extends ActionBarActivity {
 					savegeklickt = false;
 				} else {
 					Toast.makeText(getApplicationContext(), "Bitte zuerst abspeichern",
+							Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
+		delete = (Button)findViewById(R.id.button3);
+		delete.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if (dateierzeugt == true) {
+					rwfd.deletefile();
+					anzeige.setText("");
+					dateierzeugt = false;
+				} else {
+					Toast.makeText(getApplicationContext(), "Datei konnte nicht gefunden werden",
 							Toast.LENGTH_SHORT).show();
 				}
 			}

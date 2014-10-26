@@ -12,5 +12,8 @@
     <string name="read">Read</string>
     <string name="read1">Read</string>
     <string name="readstring">Read</string>
+    <string name="delete1">Delete</string>
+    <string name="delete">Delete</string>
+    <string name="deletebutton">Delete</string>
 
 </resources>
